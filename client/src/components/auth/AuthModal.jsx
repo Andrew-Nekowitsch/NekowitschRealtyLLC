@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 import { Dialog, DialogTitle, TextField, Button, CircularProgress } from '@mui/material';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 
 const textFieldSx = { mx: 2, my: 0.5 };
 
@@ -18,11 +18,11 @@ export default function AuthModal({ open, close, isRegisterMode, toggleRegister 
 
 	const handleEnter = (e) => {
 		if (e.key === 'Enter') {
-			clickSubmit();
+			submitForm();
 		}
 	};
 
-	const clickSubmit = async () => {
+	const submitForm = async () => {
 		setLoading(true);
 		setError('');
 
@@ -55,7 +55,7 @@ export default function AuthModal({ open, close, isRegisterMode, toggleRegister 
 					<CircularProgress color='inherit' />
 				</center>
 			) : (
-				<Button onClick={clickSubmit} disabled={isRegisterMode ? disabledRegisterButton : disabledLoginButton}>
+				<Button onClick={submitForm} disabled={isRegisterMode ? disabledRegisterButton : disabledLoginButton}>
 					{isRegisterMode ? 'Register' : 'Login'}
 				</Button>
 			)}
@@ -81,6 +81,7 @@ function LoginForm({ formData, handleChange, handleEnter }) {
 				onKeyUp={handleEnter}
 				variant='filled'
 				sx={textFieldSx}
+				autofocus
 				required
 			/>
 			<TextField

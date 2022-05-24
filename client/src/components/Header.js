@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { AppBar, IconButton, Avatar, Popover, List, ListSubheader, ListItemButton } from '@mui/material';
 import OnlineIndicator from './OnlineIndicator';
-import AuthModal from './AuthModal';
+import AuthModal from './auth/AuthModal';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Header() {

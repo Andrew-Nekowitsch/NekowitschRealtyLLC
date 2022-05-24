@@ -1,20 +1,16 @@
 {
-  "homepage": "https://github.com/belferink1996/MERN-template#readme",
-  "name": "mern-application",
+  "homepage": "https://nekowitsch.com",
+  "name": "nekowitsch-realty-llc",
   "version": "0.1.0",
   "description": "",
   "private": true,
   "main": "",
   "license": "ISC",
   "keywords": [],
-  "author": "Ben Elferink <ben.elferink@icloud.com> (https://www.linkedin.com/in/ben-elferink-37ba251b9)",
+  "author": "Andrew Nekowitsch <andrew@nekowitsch.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/belferink1996/MERN-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/belferink1996/MERN-template/issues",
-    "email": "ben.elferink@icloud.com"
+    "url": "https://github.com/Andrew-Nekowitsch/NekowitschRealtyLLC.git"
   },
   "scripts": {
     "install": "concurrently \"cd ./server && npm i\" \"cd ./client && npm i\"",

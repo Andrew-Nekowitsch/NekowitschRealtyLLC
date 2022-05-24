@@ -16,6 +16,7 @@ async function login(request, response, next) {
 					'string.empty': `password is empty`,
 					'any.required': `password is empty`,
 				}),
+				repeat_password: joi.string().optional()
 			})
 			.validateAsync(request.body);
 	} catch (error) {

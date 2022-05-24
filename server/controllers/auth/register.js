@@ -37,7 +37,7 @@ async function register(request, response, next) {
 		if (existingAccount) {
 			return response.status(400).json({
 				error: username,
-				message: 'An account already exists with that "username"',
+				message: 'An account already exists with that username',
 			});
 		}
 

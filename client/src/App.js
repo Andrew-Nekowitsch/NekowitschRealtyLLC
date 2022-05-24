@@ -1,12 +1,12 @@
-import {useAuth} from './contexts/AuthContext'
-import Header from './components/Header'
+import { useAuth } from './contexts/AuthContext'
+import ResponsiveAppBar from './components/ResponsiveAppBar'
 
 export default function App() {
-  const {isLoggedIn} = useAuth()
+  const { isLoggedIn } = useAuth()
 
   return (
     <div className='App'>
-      <Header />
+      <ResponsiveAppBar />
 
       {isLoggedIn ? <LoggedInText /> : <LoggedOutText />}
     </div>
@@ -14,7 +14,7 @@ export default function App() {
 }
 
 const LoggedInText = () => {
-  const {account} = useAuth()
+  const { account } = useAuth()
 
   return <p>Hey, {account.username}! I'm happy to let you know: you are authenticated!</p>
 }
