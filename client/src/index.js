@@ -1,17 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import {AuthProvider} from './contexts/AuthContext'
+import { AuthContextProvider } from './contexts/AuthContext'
+import { StateContextProvider } from './contexts/StateContext'
 import CssBaseline from '@mui/material/CssBaseline'
 import '@fontsource/roboto'
 import './styles/index.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <CssBaseline />
-      <App />
-    </AuthProvider>
-  </React.StrictMode>,
+    <AuthContextProvider>
+      <StateContextProvider>
+        <CssBaseline />
+        <App />
+      </StateContextProvider>
+    </AuthContextProvider>
+  </React.StrictMode >,
   document.getElementById('root'),
 )

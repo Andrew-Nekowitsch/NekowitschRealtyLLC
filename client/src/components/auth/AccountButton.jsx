@@ -33,26 +33,7 @@ function AccountButton() {
 		handleCloseUserMenu();
 	}
 
-
-	const loggedInSettings =
-		<>
-			<MenuItem onClick={handleCloseUserMenu}>
-				<Typography textAlign="center">Account</Typography>
-			</MenuItem>
-			<MenuItem onClick={logout}>
-				<Typography textAlign="center">Logout</Typography>
-			</MenuItem>
-		</>
-	const loggedOutSettings =
-		<>
-			<MenuItem onClick={handleLogin}>
-				<Typography textAlign="center">Login</Typography>
-			</MenuItem>
-			<MenuItem onClick={handleRegister}>
-				<Typography textAlign="center">Register</Typography>
-			</MenuItem>
-		</>
-	const menu =
+	const loggedOutMenu =
 		<Menu
 			sx={{ mt: '45px' }}
 			id="menu-appbar"
@@ -69,7 +50,36 @@ function AccountButton() {
 			open={Boolean(anchorElUser)}
 			onClose={handleCloseUserMenu}
 		>
-			{isLoggedIn ? loggedInSettings : loggedOutSettings}
+			<MenuItem onClick={handleLogin}>
+				<Typography textAlign="center">Login</Typography>
+			</MenuItem>
+			<MenuItem onClick={handleRegister}>
+				<Typography textAlign="center">Register</Typography>
+			</MenuItem>
+		</Menu>
+	const loggedInMenu =
+		<Menu
+			sx={{ mt: '45px' }}
+			id="menu-appbar"
+			anchorEl={anchorElUser}
+			anchorOrigin={{
+				vertical: 'top',
+				horizontal: 'right',
+			}}
+			keepMounted
+			transformOrigin={{
+				vertical: 'top',
+				horizontal: 'right',
+			}}
+			open={Boolean(anchorElUser)}
+			onClose={handleCloseUserMenu}
+		>
+			<MenuItem onClick={handleCloseUserMenu}>
+				<Typography textAlign="center">Account</Typography>
+			</MenuItem>
+			<MenuItem onClick={logout}>
+				<Typography textAlign="center">Logout</Typography>
+			</MenuItem>
 		</Menu>
 
 	return (
@@ -82,7 +92,7 @@ function AccountButton() {
 					</OnlineIndicator>
 				</IconButton>
 			</Tooltip>
-			{menu}
+			{isLoggedIn ? loggedInMenu : loggedOutMenu}
 			<AuthModal
 				open={authModal}
 				close={() => setAuthModal(false)}

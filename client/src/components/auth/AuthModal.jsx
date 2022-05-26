@@ -26,7 +26,6 @@ export default function AuthModal({ open, close, isRegisterMode, toggleRegister 
 		setLoading(true);
 		setError('');
 
-		console.log('formData', formData);
 		try {
 			isRegisterMode ? await register(formData) : await login(formData);
 			close();
@@ -81,7 +80,7 @@ function LoginForm({ formData, handleChange, handleEnter }) {
 				onKeyUp={handleEnter}
 				variant='filled'
 				sx={textFieldSx}
-				autofocus
+				autoFocus
 				required
 			/>
 			<TextField

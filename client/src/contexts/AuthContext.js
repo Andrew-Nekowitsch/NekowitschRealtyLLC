@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useState, useEffect } from 'react'
 import axios from '../utils/axios'
 
 // init context
@@ -10,7 +10,7 @@ export function useAuth() {
 }
 
 // export the provider (handle all the logic here)
-export function AuthProvider({ children }) {
+export function AuthContextProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [account, setAccount] = useState(null)
   const [token, setToken] = useState(localStorage.getItem('token') || null)

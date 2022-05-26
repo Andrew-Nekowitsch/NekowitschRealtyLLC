@@ -11,11 +11,14 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from './Logo'
 import AccountButton from './auth/AccountButton'
+import { useAuth } from '../contexts/AuthContext'
 
 const pages = ['Products', 'Pricing', 'Blog'];
 
 const ResponsiveAppBar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+	const { account } = useAuth()
 
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget);
@@ -78,6 +81,16 @@ const ResponsiveAppBar = () => {
 								{page}
 							</Button>
 						))}
+						{
+							account && account.role === 'admin' ?
+								<Button
+									onClick={handleCloseNavMenu}
+									sx={{ my: 2, color: 'white', display: 'block' }}
+								>
+									Admin
+								</Button>
+								: null
+						}
 					</Box>
 
 					<AccountButton />
