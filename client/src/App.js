@@ -1,7 +1,16 @@
+import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useRouteMatch
+} from "react-router-dom";
 import { useAuth } from './contexts/AuthContext'
 import ResponsiveAppBar from './components/ResponsiveAppBar'
 import {
   About,
+  Account,
   Admin,
   Contact,
   Home,
@@ -13,13 +22,20 @@ export default function App() {
 
   return (
     <div className='App'>
-      <ResponsiveAppBar />
-      <About />
-      <Admin />
-      <Contact />
-      <Home />
-      <PayRent />
-      {isLoggedIn ? <LoggedInText /> : <LoggedOutText />}
+
+      <Router>
+        <ResponsiveAppBar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/aboutus" element={<About />} />
+          <Route exact path="/contactus" element={<Contact />} />
+          <Route exact path="/payrent" element={<PayRent />} />
+          <Route exact path="/admin" element={<Admin />} />
+          <Route exact path="/account" element={<Account />} />
+        </Routes>
+
+        {isLoggedIn ? <LoggedInText /> : <LoggedOutText />}
+      </Router>
     </div>
   )
 }

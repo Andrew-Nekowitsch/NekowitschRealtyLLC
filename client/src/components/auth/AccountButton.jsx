@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import OnlineIndicator from '../OnlineIndicator';
 import AuthModal from './AuthModal';
 import { useAuth } from '../../contexts/AuthContext'
+import Link from '@mui/material/Link';
 
 function AccountButton() {
 	const { isLoggedIn, account, logout } = useAuth();
@@ -74,13 +75,15 @@ function AccountButton() {
 			open={Boolean(anchorElUser)}
 			onClose={handleCloseUserMenu}
 		>
-			<MenuItem onClick={handleCloseUserMenu}>
-				<Typography textAlign="center">Account</Typography>
-			</MenuItem>
+			<Link href='account' sx={{ textDecoration: 'none', color: 'inherit' }}>
+				<MenuItem onClick={handleCloseUserMenu}>
+					<Typography textAlign="center">Account</Typography>
+				</MenuItem>
+			</Link>
 			<MenuItem onClick={logout}>
 				<Typography textAlign="center">Logout</Typography>
 			</MenuItem>
-		</Menu>
+		</Menu >
 
 	return (
 		<Box sx={{ flexGrow: 0 }}>

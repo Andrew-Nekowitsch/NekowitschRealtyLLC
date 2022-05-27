@@ -76,6 +76,7 @@ const ResponsiveAppBar = () => {
 							<Button
 								key={page}
 								onClick={handleCloseNavMenu}
+								href={page.replaceAll(' ', '').toLowerCase()}
 								sx={{ my: 2, color: 'white', display: 'block' }}
 							>
 								{page}
@@ -85,6 +86,7 @@ const ResponsiveAppBar = () => {
 							account ?
 								<Button
 									onClick={handleCloseNavMenu}
+									href='payrent'
 									sx={{ my: 2, color: 'white', display: 'block' }}
 								>
 									Pay Rent
@@ -95,6 +97,7 @@ const ResponsiveAppBar = () => {
 							account && account.role === 'admin' ?
 								<Button
 									onClick={handleCloseNavMenu}
+									href='admin'
 									sx={{ my: 2, color: 'white', display: 'block' }}
 								>
 									Admin
