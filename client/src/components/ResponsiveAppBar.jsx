@@ -13,7 +13,7 @@ import Logo from './Logo'
 import AccountButton from './auth/AccountButton'
 import { useAuth } from '../contexts/AuthContext'
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const publicPages = ['Contact Us', 'About Us'];
 
 const ResponsiveAppBar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -62,7 +62,7 @@ const ResponsiveAppBar = () => {
 									display: { xs: 'block', md: 'none' },
 								}}
 							>
-								{pages.map((page) => (
+								{publicPages.map((page) => (
 									<MenuItem key={page} onClick={handleCloseNavMenu}>
 										<Typography textAlign="center">{page}</Typography>
 									</MenuItem>
@@ -72,7 +72,7 @@ const ResponsiveAppBar = () => {
 						<Logo size="xs" />
 					</>
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-						{pages.map((page) => (
+						{publicPages.map((page) => (
 							<Button
 								key={page}
 								onClick={handleCloseNavMenu}
@@ -81,6 +81,16 @@ const ResponsiveAppBar = () => {
 								{page}
 							</Button>
 						))}
+						{
+							account ?
+								<Button
+									onClick={handleCloseNavMenu}
+									sx={{ my: 2, color: 'white', display: 'block' }}
+								>
+									Pay Rent
+								</Button>
+								: null
+						}
 						{
 							account && account.role === 'admin' ?
 								<Button

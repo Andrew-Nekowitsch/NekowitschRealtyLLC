@@ -1,5 +1,12 @@
 import { useAuth } from './contexts/AuthContext'
 import ResponsiveAppBar from './components/ResponsiveAppBar'
+import {
+  About,
+  Admin,
+  Contact,
+  Home,
+  PayRent
+} from './pages'
 
 export default function App() {
   const { isLoggedIn } = useAuth()
@@ -7,7 +14,11 @@ export default function App() {
   return (
     <div className='App'>
       <ResponsiveAppBar />
-
+      <About />
+      <Admin />
+      <Contact />
+      <Home />
+      <PayRent />
       {isLoggedIn ? <LoggedInText /> : <LoggedOutText />}
     </div>
   )

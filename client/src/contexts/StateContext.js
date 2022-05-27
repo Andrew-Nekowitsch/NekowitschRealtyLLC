@@ -4,12 +4,13 @@ const StateContext = createContext();
 
 const initialState = {
 	userProfile: false,
-	rent: false
+	rent: false,
+	page: null,
 }
 
 export const StateContextProvider = ({ children }) => {
-	const [activeMenu, setActiveMenu] = useState(true);
-	return <StateContext.Provider value={{ activeMenu, }}>
+	const [activePage, setActivePage] = useState(true);
+	return <StateContext.Provider value={{ activePage, setActivePage }}>
 		{children}
 	</StateContext.Provider>
 }
