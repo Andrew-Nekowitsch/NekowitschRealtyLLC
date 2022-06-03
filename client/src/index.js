@@ -7,7 +7,8 @@ import CssBaseline from '@mui/material/CssBaseline'
 import '@fontsource/roboto'
 import './styles/index.css'
 
-ReactDOM.render(
+// https://www.digitalocean.com/community/tutorials/react-server-side-rendering
+ReactDOM.hydrate(
   <React.StrictMode>
     <AuthContextProvider>
       <StateContextProvider>
